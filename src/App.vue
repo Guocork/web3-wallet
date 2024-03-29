@@ -1,30 +1,24 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import Web3 from 'web3';
+import Web3Api from './components/Web3Api.vue';
+//实例化web3
+var web3 = new Web3(Web3.givenProvider || "wss://goerli.infura.io/ws/v3/0fda17b26c574dca81d0069f6150ffe8");
+// console.log(web3);
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+<h1>Hello World</h1>
+<van-button color="linear-gradient(to right, #ff6034, #ee0a24)">
+  欢迎来到我的钱包
+</van-button>
+<Suspense>
+  <Web3Api></Web3Api>
+</Suspense>
+
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+h1 {
+  color: red;
 }
 </style>
